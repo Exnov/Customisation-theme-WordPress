@@ -1,0 +1,683 @@
+/*
+Theme Name: Strasbourg
+template: sydney
+Theme URI: http://example.com/strasbourg/
+Author: Exnov
+Author URI: http://example.com
+Description: Strasbourg is a powerful business theme that provides a fast way for companies or freelancers to create an awesome online presence. As well as being fully compatible with Elementor, Sydney brings plenty of customization possibilities like access to all Google Fonts, full color control, layout control, logo upload, full screen slider, header image, sticky navigation and much more. Also, Sydney provides all the construction blocks you need to rapidly create an engaging front page.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sydney-child
+Tags: two-columns, right-sidebar, custom-colors, custom-background, custom-header, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
+*/
+
+/*
+************************************************
+PLAN :
+1- GENERAL
+2- HEADER
+3- SLIDER
+4- CORPS
+5- PAGE ACCUEIL
+6- PAGE ACTUALITES
+7- PAGES Articles et catégories cf content-single.php (single.php et archive.php)
+8- PAGE PLUS D'INFOS
+9- PAGE ACTIVITES DU MOIS
+10- PAGE CONTACT
+11- Page search.php et 404.php
+12- FOOTER
+13- MEDIA QUERIES
+************************************************
+*/
+
+
+/*
+************************************************
+1- GENERAL
+************************************************
+*/
+
+body{ /*pour espace quand barre d'administration visible*/
+	background-color: rgb(25,25,25);
+}
+
+
+/*
+************************************************
+2- HEADER
+************************************************
+*/
+
+#masthead{ /*pour afficher menu en noir d'emblée*/
+	top:0;
+	background-color: rgb(25,25,25);
+}
+.header-wrap{
+	top:0;
+	background-color: rgba(25,25,25);
+}
+
+.site-title{ /*'Office du tourisme de Strasbourg'*/
+	padding-bottom: 8px;
+}
+
+h1.site-title a{ /*'Office du tourisme de Strasbourg'*/
+	color:#e64e4d;
+	font-size:21px;
+}
+
+
+/*Titre des pages : Accueil, Plus d'infos et Activités du mois*/
+.entry-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.entry-header h1{
+	padding-right: 40px;
+}
+
+.entry-header ul{
+	padding:5px 0;	
+}
+
+.entry-header ul li{
+	display: inline;
+}
+.entry-header ul li:not(:nth-child(3)){	
+	padding-right:20px;
+}
+
+.entry-header ul li i{
+	font-size: 2em;
+}
+
+/*Menu page*/
+#menu-menu-superieur{ 
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+#mainnav li{
+	margin:auto;
+}
+
+#strasbourg-search form{
+	display: flex;
+}
+
+#strasbourg-search form input{
+	height:35px;
+}
+
+#strasbourg-search form button{
+	padding-right: 12px;
+	padding-left: 12px;
+	padding-top:0;
+	padding-bottom:0;
+}
+
+
+/*
+************************************************
+3- SLIDER
+************************************************
+*/
+/*REPRODUCTION DES STYLES DU SLIDER CF PARENT*/
+.admin-bar:not(.siteScrolled) .slideA-item {
+	background-position: 50% 0 !important;
+}
+
+.slides-container .slideA-item {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-slider[data-speed="0"] .slideA-item {
+    opacity: 1 !important;
+}
+/*---------------------------------------*/
+
+.contain h2.maintitle{ /* animation titre du slider*/
+	transition-duration: 1s;
+}
+
+.contain h2.maintitle:hover{ /* animation titre du slider*/
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	color:#e64e4d;
+}
+
+.text-slider .maintitle, .text-slider .subtitle {
+    text-shadow: 5px 5px 10px rgb(0,0,0);
+}
+
+.button-slider{ /*disparition du bouton sur le slider*/
+	display: none;
+}
+
+
+/*
+************************************************
+4- CORPS
+************************************************
+*/
+.container{ /*container header et corps page*/
+		border-radius:10px;
+		padding:5px;		
+}
+
+.content-area .post-wrap{  /*toutes les pages sauf 'Actualités'*/
+	padding-right:0;
+}
+
+.content-area .blog{ /*page 'Actualités' et les pages catégories (cf archive.php)*/
+	padding-right:25px;
+	padding-left:25px;
+}
+
+section.blog-front{ /*page 'Accueil' et 'Plus d'infos' (cf content-accueil.php et content-info.php)*/
+	padding-right:0;
+	padding-left:0;
+}
+
+/*titre des pages*/
+h1.title-post{ 
+	font-size: 36px;
+	font-weight: 600;
+}
+
+
+
+/*
+************************************************
+5- PAGE ACCUEIL
+************************************************
+*/
+/*Dernière actualité*/
+#last_actu{
+	margin-left: 0; /*désactiver les marges de -15px par défaut sur row ici*/
+	margin-right: 0; /*désactiver les marges de -15px par défaut sur row ici*/
+	padding-bottom:10px;
+}
+
+#last_actu h1{
+	background-color: #d6504f;
+	color:white;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-bottom: 20px;
+}
+
+.gros-boutons .card-body{
+	position: relative;	
+}
+
+.gros-boutons h3{
+	position: absolute;
+	top:40%;
+	background-color: #191919;
+	padding:10px;	
+}
+
+.gros-boutons h3 a{
+	color:white;
+}
+
+.gros-boutons h3 a:hover{
+	text-decoration: none;
+	color: #d65050;
+}
+
+
+/*
+************************************************
+6- PAGE ACTUALITES
+************************************************
+*/
+#container-blog{
+	padding-top:30px;
+}
+
+.actus-fil{
+	margin-top:40px;
+}
+
+.actus-fil .row{	
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border-bottom:1px solid red;
+}
+
+/*alignement vertical du contenu*/
+.image-actu{
+	padding-bottom: 10px;
+}
+
+
+/*
+************************************************
+7- PAGES Articles et catégories cf content-single.php (single.php et archive.php)
+************************************************
+*/
+.signature-post{
+	margin-top: 40px;
+}
+
+/*animation*/
+@keyframes animation_illu {
+
+    33% {
+        transform:scale(0.7); 
+    }
+    66% {
+        transform:scale(1.15); 
+    }
+
+}
+/*safari, chrome, opera*/
+@-webkit-keyframes animation_illu {
+
+    33% {
+        transform:scale(0.7); 
+    }
+    66% {
+        transform:scale(1.15); 
+    }
+}
+
+.image-actu img:hover{
+	animation: animation_illu 2s;
+	-webkit-animation: animation_illu 2s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out; /* Safari 4.0 - 8.0 */
+}
+
+/*tags invisibles dans les articles*/
+.tags-links{
+	display: none;
+}
+
+
+/*
+************************************************
+8- PAGE PLUS D'INFOS
+************************************************
+*/
+.card{
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .5rem;
+	transition-duration: 1s;
+	margin-bottom: 30px;
+}
+.card-body p{
+	text-align: justify;
+}
+
+.card-header h3{
+	margin-bottom: 1rem;
+}
+
+/*animation basique card*/
+.card:hover{
+	transform:scale(1.05);
+	-webkit-transform:scale(1.05);
+	cursor: default;
+}
+
+
+/*
+************************************************
+9- PAGE ACTIVITES DU MOIS
+************************************************
+*/
+/*tableau d'inscription*/
+#tableauInscription td{
+	text-align: left;
+}
+
+/*formulaire d'inscription*/
+#formInscription{
+	display: none;
+	position: relative;
+	top:20px;
+	padding:30px;
+	margin:auto;
+	z-index: 1003;	
+	max-width:400px;
+	height:300px;
+	background-color:#d9d9d9;
+	border:1px solid black;
+	border-radius:5%;	
+	margin-top: 40px;
+}
+
+#formInscription input{
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: 5px;
+}
+
+/*version mobile*/
+#tableauInscription2{
+	display: none;
+}
+
+
+/*
+************************************************
+10- PAGE CONTACT
+************************************************
+*/
+#ctc-resident{
+	margin-top: 6px;
+}
+
+/*google card; cf post*/
+#google-carte{
+	margin-top:10px;
+}
+
+/*sous-couche inscription*/
+#overlay{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1002;
+    cursor: pointer;
+}
+
+/*contact-form*/
+#residence .wpcf7-list-item{
+		margin-left:0;
+}
+
+
+/*
+************************************************
+11- Page search.php et 404.php
+************************************************
+*/
+#search-row{
+	margin-left:0;
+	margin-right:0;
+}
+
+/*404.php*/
+#titre-erreur{
+	padding-top:0;
+}
+#texte-erreur{
+	padding-left:10px;
+	padding-right: 10px;
+}
+/*
+************************************************
+12- FOOTER
+************************************************
+*/
+.site-footer .container{
+	text-align: center;
+}
+
+
+/*
+************************************************
+13- MEDIA QUERIES
+************************************************
+*/
+
+/*----------------1200px-------------------------*/
+@media all and (max-width:1200px){
+
+	/*Menu page*/
+	#mainnav li{
+		margin:0;
+	}
+
+}
+
+/*----------------1199px-------------------------*/
+@media all and (max-width:1199px){
+
+	/*barre de recherche du bouton*/
+	#strasbourg-search{
+		margin-top: 10px !important;
+	}
+
+	/*Titre et sous-titre slider*/
+	.slide-inner{
+		min-height: initial;
+	}
+}
+
+/*----------------1024px-------------------------*/
+@media all and (max-width: 1024px) {
+	
+	.header-image{ /*quand pas de sliders sur les autres pages que celle d'Accueil*/
+		margin-top: 100px;
+	}
+
+	/*fixation du header*/
+	#masthead{
+		position: fixed !important;
+		 background-color: rgb(25,25,25);		
+	}
+
+	/*barre de recherche dans le menu de la page*/
+	#strasbourg-search form{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 50px;
+	}
+
+	#strasbourg-search form input{
+		text-indent: -15px;
+	}
+
+	/*slider*/
+	.slides-container .slideA-item{
+		background-image: none !important;
+	}
+
+}	
+
+/*---------------- 768px-------------------------*/
+@media all and (max-width:768px){
+
+	/*barre de recherche dans le menu de la page*/
+	#strasbourg-search form{
+		padding-left: 4px;
+	}
+
+	#strasbourg-search form input{
+		text-indent: 0;
+	}
+
+	#slideshow{
+		height:400px !important;
+		top:75px;
+	}
+
+	.mobile-slide{
+		width: 100% !important;
+		height: auto !important;
+		left:0 !important;
+		top:0 !important;
+		bottom: auto !important;
+	}
+
+	.slide-inner{
+		top:35%;
+	}
+
+	/*Corps de la page*/
+	#content{
+		margin-top: -10px;
+	}
+
+	/*Page Activités du mois*/
+	.inscription{
+		padding: 0;
+		padding-right:2px;
+		padding-left:2px;
+	}
+
+	/*QUAND BARRE ADMINISTRATION VISIBLE-----------------------*/
+	.admin-bar.siteScrolled #masthead {
+		top:40px;
+	}
+
+}
+
+/*---------------- 767px-------------------------*/
+@media all and (max-width:767px){
+
+	/*bouton menu hamburger*/
+	.btn-menu{
+		margin-top: 0;
+	}
+}
+
+/*---------------- 600px-------------------------*/
+@media all and (max-width:600px){ 
+
+	#wpadminbar{ /*barre d'administration*/
+		position: fixed;
+	}
+}
+
+/*---------------- 575px-------------------------*/
+@media all and (max-width:575px){
+
+	body{
+		background-color: white;
+	}
+
+	/*barre de recherche dans le menu de la page*/
+	#strasbourg-search form{
+		padding-left: 50px;
+	}
+
+	#strasbourg-search form input{
+		text-indent: -15px;
+	}
+
+	/*header*/
+	.site-title{
+		padding-bottom: 0;
+	}
+
+	/*slider*/
+	#slideshow{
+		top:105px;
+		
+	}
+
+	.slide-inner{
+		top:30%;
+	}
+
+	/*Corps de la page*/
+
+	#content{
+	margin-top: -80px;		
+	}
+
+	/*bouton menu hamburger*/
+	.btn-menu{
+		margin-top: 15px;
+	}
+
+	/*Page Actualités*/
+	#homepage-row{
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+}
+
+/*---------------- 480px-------------------------*/
+@media all and (max-width:480px){
+
+	.slideA-item{		
+		display: flex;
+		flex-direction: column;
+	}
+
+	.slideA-item img{	
+		position: relative !important;
+	}
+
+}
+
+/*---------------- 470px-------------------------*/
+@media all and (max-width:470px){
+
+	#tableauInscription{
+		display: none;
+	}
+
+	#tableauInscription2{
+		display: block;
+	}
+
+	#tableauInscription2 th{
+		text-align: center;
+	}
+
+}
+
+/*---------------- 450px-------------------------*/
+@media all and (max-width:450px){
+
+	.slide-inner{
+		background-color: rgba(0,0,0,0.5);
+		bottom: 0;
+		height: 95px;
+	}
+
+
+}
+
+/*---------------- 400px-------------------------*/
+@media all and (max-width:400px){
+
+	#content{
+			margin-top: -120px;	
+	}
+
+	.no-slides{
+		margin-top:-80px !important;
+	}
+
+}
+
+/*---------------- 315px-------------------------*/
+@media all and (max-width:315px){
+
+	#content{
+		margin-top: -190px;	
+	}
+
+}
+
+
+/*
+************************************************
+FIN
+************************************************
+*/
+
+
