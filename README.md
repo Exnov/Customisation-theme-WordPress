@@ -1,4 +1,4 @@
-# p2
+# Customisation thème WordPress
 Personnalisation du thème Wordpress Sydney avec la création du thème enfant Strasbourg. 
 
 ## Opérations
